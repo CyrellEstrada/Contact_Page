@@ -13,7 +13,32 @@
     </div>
     <div>
       <label for="email">Email</label>
-      <input type="email" name="email" id="email" >
+      <input type="email" name="email" id="email" required>
+    </div>
+    <div>
+      <!-- <label for="comments">Comments</label>
+      <input type="text" name="comments" id="comments"> -->
+      <textarea id="comments" name="comments" rows="4" cols="50" placeholder="Enter your comments" required></textarea>
+      <span id="charCount"></span>
+      <br>
+      
+      <!-- <button type="button" onclick="validateForm()">Submit</button> -->
+      <script>
+        function validateForm() {
+          var comments = documents.getElementById("comments").value;
+          if (comments.length >= 20 && comments.length <= 500) {
+            alert("Form submitted successfully");
+          }else{
+            alert("comments must be betweeen 20 and 500 characters.");
+          }
+        }
+
+        document.getElementById("comments").addEventListener("input", functions() {
+          var charCount = this.value.length;
+          document.getElementById("charCount").innerText = charcount + "characters" ;
+
+        });
+      </script>
     </div>
     <div>
       <label for="age">Age</label>
@@ -24,7 +49,7 @@
       <input type="date" name="date" id="date" min="2019-06-10">
     </div>
     <div>
-      Favorite Food
+      Favorite Fruit
       <div>
         <label for="banana">Banana</label>
         <input type="checkbox" name="banana" id="banana">
@@ -32,6 +57,10 @@
       <div>
         <label for="apple">Apple</label>
         <input type="checkbox" name="apple" id="apple">
+      </div>
+      <div>
+        <label for="other1">Other</label>
+        <input type="type" name="other" id="other1">
       </div>
     </div>
     <div>
@@ -45,7 +74,7 @@
         <input type="radio" name="gender" id="female" value="female">
       </div>
       <div>
-        <label for="other">Other</label>
+        <label for="other2">Other</label>
         <input type="radio" name="gender" id="other" value="other">
       </div>
     </div>
@@ -53,6 +82,8 @@
       <label for="eyeColor">Eye Color</label>
       <select name="eyeColor" id="eyeColor" multiple>
         <option value="Green">Green</option>
+        <option value="Brown">Brown</option>
+        <option value="Blue">Blue</option>
         <option label="Red" value="Red"></option>
       </select>
     </div>
@@ -69,6 +100,32 @@
       <label for="phone">Phone</label>
       <input type="tel" name="phone" id="phone">
     </div>
+    How did you hear about me?
+    <div>
+      <label for="classmate">Classmate</label>
+      <input type="radio" name="classmate" id="classmate">
+      </div>
+      <div>
+      <label for="resume submission">Resume Submission</label>
+      <input type="radio" name="resume submission" id="resume submission">
+      </div>
+      <div>
+      <label for="linkedin">Linkedin</label>
+      <input type="radio" name="linkedin" id="linkedin">
+      </div>
+      <div>
+      <label for="coding academy rec">Coding Academy Rec</label>
+      <input type="radio" name="coding academy rec" id="coding academy rec">
+    </div>
+    Want to be contacted back?
+    <div>
+      <label for="yes">Yes</label>
+      <input type="radio" name="yes" id="yes">
+    </div>
+    <div>
+      <label for="no">No</label>
+      <input type="radio" name="no" id="no">
+    </div>
     <div>
       <label for="url">URL</label>
       <input type="url" name="url" id="url">
@@ -84,7 +141,7 @@
       </label>
     </div>
     <button type="reset">Reset</button>
-    <button type="submit">Submit</button>
+    <button type="submit" onclick="validateForm()">Submit</button>
   </form>
   <!-- <script src="scripts.js"></script> -->
 </body>
